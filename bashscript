@@ -1,0 +1,14 @@
+#!/bin/bash 
+upower -d | grep "%" > battery.txt
+chmod +rwx 'battery.txt'
+python3 batt_script.py 
+count=$(cat battery.txt)
+if [ $count -le 80 ] ; then
+  while [ $count -le 80 ]
+  do
+    sleep 30
+    count=$(cat battery.txt)
+  done
+else 
+  firefox https://www.youtube.com/watch?v=6uHjbT-nfLo&list=RD6uHjbT-nfLo&start_radio=1
+fi
