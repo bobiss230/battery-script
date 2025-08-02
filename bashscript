@@ -7,6 +7,7 @@ if [ $count -le 80 ] ; then
   while [ $count -le 80 ]
   do
     sleep 30
+    python3 batt_script.py
     count=$(cat battery.txt)
   done
 else 
